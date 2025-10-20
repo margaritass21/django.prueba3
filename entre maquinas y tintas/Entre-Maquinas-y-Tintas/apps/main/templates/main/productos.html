@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Productos - Entre Máquinas y Tintas{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4">Nuestros Productos</h1>
+    
+    <h2 class="mt-5 mb-3">Máquinas</h2>
+    <div class="row">
+        {% for machine in machines %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">{{ machine.name }}</h3>
+                    <p class="card-text">{{ machine.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p>No hay máquinas disponibles en este momento.</p>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <h2 class="mt-5 mb-3">Tintas</h2>
+    <div class="row">
+        {% for ink in inks %}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">{{ ink.color }}</h3>
+                    <p class="card-text">Tipo: {{ ink.type }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p>No hay tintas disponibles en este momento.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

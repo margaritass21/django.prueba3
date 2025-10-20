@@ -1,0 +1,80 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Contacto - Entre Máquinas y Tintas{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="mb-4">Contáctanos</h1>
+            <p class="mb-4">Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+            
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono">
+                </div>
+                <div class="mb-3">
+                    <label for="asunto" class="form-label">Asunto</label>
+                    <select class="form-select" id="asunto" name="asunto" required>
+                        <option value="" selected disabled>Selecciona una opción</option>
+                        <option value="sublimacion">Sublimación</option>
+                        <option value="estampado">Estampado</option>
+                        <option value="diseno">Diseño</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            </form>
+        </div>
+        
+        <div class="col-lg-6 mt-5 mt-lg-0">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title mb-4">Información de contacto</h2>
+                    
+                    <div class="mb-4">
+                        <h3 class="h5"><i class="bi bi-geo-alt"></i> Dirección</h3>
+                        <p>Av. Principal #123, Ciudad, País</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="h5"><i class="bi bi-telephone"></i> Teléfono</h3>
+                        <p>+123 456 7890</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="h5"><i class="bi bi-envelope"></i> Correo electrónico</h3>
+                        <p>info@entremaquinasytintas.com</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="h5"><i class="bi bi-clock"></i> Horario de atención</h3>
+                        <p>Lunes a Viernes: 9:00 AM - 6:00 PM<br>
+                        Sábados: 9:00 AM - 2:00 PM</p>
+                    </div>
+                    
+                    <div class="social-links mt-4">
+                        <a href="#" class="btn btn-outline-primary me-2"><i class="bi bi-facebook"></i> Facebook</a>
+                        <a href="#" class="btn btn-outline-danger me-2"><i class="bi bi-instagram"></i> Instagram</a>
+                        <a href="#" class="btn btn-outline-success"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
